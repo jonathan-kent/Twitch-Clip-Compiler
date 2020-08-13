@@ -35,15 +35,15 @@ class clip_downloader:
         duration_class_name = "tw-align-items-center.tw-border-radius-small.tw-c-background-overlay.tw-c-text-overlay.tw-flex.tw-font-size-6.tw-justify-content-center.tw-media-card-stat"
         clip_info_class_name = "tw-interactive.tw-link.tw-link--hover-underline-none.tw-link--inherit"
 
-        links = []
-        durations = []
-        titles = []
-        streamers = []
         mins = 0
         secs = 0
         while mins < 10:
             mins = 0
             secs = 0
+            links = []
+            durations = []
+            titles = []
+            streamers = []
             clips = self.driver.find_elements_by_class_name(link_class_name)
             clip_durations = self.driver.find_elements_by_class_name(duration_class_name)
             clip_info = self.driver.find_elements_by_class_name(clip_info_class_name)
@@ -85,7 +85,7 @@ class clip_downloader:
             final_titles.append(titles[i])
             final_streamers.append(streamers[i])
             i += 1
-            
+ 
         return (final_links, final_titles, final_streamers)
 
     def custom_clips(self):
@@ -203,6 +203,6 @@ if len(LINKS) > 0:
     info = clip_downloader.custom_clips()
 else:
     info = clip_downloader.get_links()
-clip_downloader.download_clips(info[0])
-edit_video(info[1], info[2])
-upload_video(info[2])
+#clip_downloader.download_clips(info[0])
+#edit_video(info[1], info[2])
+#upload_video(info[2])
